@@ -22,6 +22,7 @@ class DonationsController extends Controller
         $donarCountry = $request->donar_country;
         $donarContact = $request->donar_contact;
         $donarEmail = $request->donar_email;
+        $currency = $request->currency;
         $dateInserted = date("Y-m-d H:i:s");
 
         
@@ -53,13 +54,13 @@ class DonationsController extends Controller
             $to_name = $request->donar_name;
             $to_email = $request->donar_email;
 
-            $data = array("name"=>$to_name, "body" => $donationAmount);
+            $data = array("name"=>$to_name, "body" => $currency." ".$donationAmount);
 
             Mail::send("emails.mail", $data, function($message) use ($to_name, $to_email) {
 
                 $message->to($to_email, $to_name)
 
-                ->subject("Laravel Test Mail");
+                ->subject("Donation Successful");
 
                 $message->from("lalendradias3@gmail.com","Test Mail");
 
