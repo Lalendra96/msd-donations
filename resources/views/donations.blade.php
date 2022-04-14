@@ -56,7 +56,7 @@
             <div class="col-md-8" style="margin-top: 1cm; margin-bottom: 2cm;">
                <form id="addDonations" name="addDonations" autocomplete="off" method="POST" action="{{route('addDonationInformation')}}">
                   @csrf
-                  <legend>Add Donations Information</legend>
+                  <legend>Donations Information</legend>
                   <div class="form-group">
                      <label class="col-sm-2 control-label">Donar's Name<sup style="color:red">*</sup></label>
                      <input type="text" autocomplete="off" class="form-control txtOnly" name="donar_name" placeholder="Please enter your name" required>
