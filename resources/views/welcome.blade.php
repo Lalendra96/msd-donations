@@ -112,18 +112,18 @@
 	  </div>
 	<div class="container my-5 pt-5" id="donation">
 	  	<div class="row">
-			<div class="col-md-12">
-        <h3 class="text-column text-center text-uppercase font-bold my-4">Help Health Sri Lanka</h3>
-			</div>
-			<div class="col-md-10 offset-md-1 text-center">
-				<p class="text-column">Many kind hearted people around the world have contacted us enquring how to help the health system of the country at current economic situation. SMPSRP has developed a system to direct your kind donations.
+			  <div class="col-md-12">
+          <h3 class="text-column text-center text-uppercase font-bold my-4">Help Health Sri Lanka</h3>
+			  </div>
+			  <div class="col-md-10 offset-md-1 text-center">
+				  <p class="text-column">Many kind hearted people around the world have contacted us enquring how to help the health system of the country at current economic situation. SMPSRP has developed a system to direct your kind donations.
           Your donations will be audited and accounted by the Auditor Generals Department.
-				</p>
-      </div>
-      <div class="col-md-6 offset-md-3">
+				  </p>
+        </div>
+        <div class="col-md-6 offset-md-3">
           <p class="text-center my-5"><a class="btn btn-success btn-two btn-lg btn-block" href="{{route('interface')}}" role="button">Donate Now</a> </p>
-      </div>
-		</div>
+        </div>
+		  </div>
 	  </div>
     <div class="bg-gray pb-4 pt-3" style="background-color: lightgray;">
         <div class="container">
@@ -150,6 +150,29 @@
             </div>
           </div>
     </div>
+
+    <div id="donationIfoModal" class="modal fade" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header bg-secondary">
+                <h5 class="modal-title">Help Health Sri Lanka</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">&times;</button>
+            </div>
+            <div class="modal-body" style="background-color: lightgray">
+              <div class="row">
+			          <div class="col-md-10 offset-md-1 text-center">
+				          <p class="text-column" style="font-size:25px">Many kind hearted people around the world have contacted us enquring how to help the health system of the country at current economic situation. SMPSRP has developed a system to direct your kind donations.
+                    Your donations will be audited and accounted by the Auditor Generals Department.
+				          </p>
+                </div>
+                <div class="col-md-6 offset-md-3">
+                  <p class="text-center my-5"><a class="btn btn-success btn-two btn-lg btn-block" href="{{route('interface')}}" role="button">Donate Now</a> </p>
+                </div>
+		          </div>
+            </div>
+        </div>
+    </div>
+    </div>
     
     <footer class="text-center bg-dark text-white">
       <div class="container">
@@ -160,5 +183,11 @@
         </div>
       </div>
     </footer>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script type="text/javascript">
+    window.onload = () => {
+        $('#donationIfoModal').modal('show');
+    }
+</script>
   </body>
 </html>
