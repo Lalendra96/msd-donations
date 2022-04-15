@@ -39,9 +39,14 @@ class DonationsController extends Controller
         DB::beginTransaction();
 
         try{
+
             $donar_id = DonationInformation::insertGetId($insertDataDonationData);
             $donarInfo = DonationInformation::find($donar_id);
+
         }catch(QueryException $ex){
+
+            DB::rollBack();
+
             return response()->json([
                 'success' => false,
                 'message' => $ex->getMessage()
@@ -49,29 +54,43 @@ class DonationsController extends Controller
         }
 
         if(!empty($donar_id)){
+            
             DB::commit();
 
-            $to_name = $request->donar_name;
-            $to_email = $request->donar_email;
+            try{
+                $to_name = $request->donar_name;
+                $to_email = $request->donar_email;
 
-            $data = array("name"=>$to_name, "body" => $currency." ".$donationAmount);
+                $data = array("name"=>$to_name, "body" => $currency." ".$donationAmount);
 
-            Mail::send("emails.mail", $data, function($message) use ($to_name, $to_email) {
+                Mail::send("emails.mail", $data, function($message) use ($to_name, $to_email) {
 
-                $message->to($to_email, $to_name)
+                    $message->to($to_email, $to_name)
 
-                ->subject("Donation Successful");
+                    ->subject("Donation Successful");
 
-                $message->from("lalendradias3@gmail.com","Test Mail");
+                    $message->from("lalendradias3@gmail.com","Test Mail");
 
-            });
+                });
 
-            return response()->json([
-                'success' => true,
-                'message' => "Successfully Placed Your Donation"
-            ],200);
+                return response()->json([
+                    'success' => true,
+                    'message' => "Successfully Placed Your Donation"
+                ],200);
+
+            }catch(\Exception $ex){
+
+                return response()->json([
+                    'success' => false,
+                    'message' => "Failed to Send the Reply Email"
+                ],200);
+
+            }
 
         }else{
+
+            DB::rollBack();
+
             return response()->json([
                 'success' => false,
                 'message' => $ex->getMessage()

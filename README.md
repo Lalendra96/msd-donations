@@ -66,4 +66,7 @@
     2. Create mysql database "donations".
     3. run the following command in terminal "composer install", before running "php artisan serve" command
     4. run php artisan serve in terminal
-    5. run command php artisan migrate --path=/database/migrations/2022_04_13_012454_create_donation_information.php to create the tables
+    5. run command 
+      i. php artisan migrate --path=/database/migrations/2022_04_13_012454_create_donation_information.php 
+      ii. php artisan migrate --path=/database/migrations/2022_04_15_040834_countries.php  
+      iii. php artisan migrate --path=2022_04_15_043720_currency.php to create the tables

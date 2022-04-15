@@ -17,9 +17,24 @@ Route::get('/', function () {
     return view('welcome');
 })->name('home');
 
-Route::get('/donations', function () {
-    return view('donations');
-})->name('interface');
+Route::prefix('donate')->name('donate.')->group(function(){
 
-Route::post('/addDonationInformation', [App\Http\Controllers\Donations\DonationsController::class, 'insertData'])->name('addDonationInformation');
+    // Route::get('/donations', function () {
+    //     return view('donations');
+    // })->name('interface');
+
+    Route::view('/donations', 'donations')->name('donations');
+    Route::post('/addDonationInformation', [App\Http\Controllers\Donations\DonationsController::class, 'insertData'])->name('addDonationInformation');
+});
+
+Route::prefix('common')->name('common.')->group(function(){
+
+    Route::post('/countrylist', [App\Http\Controllers\common\commonFunctions::class, 'getAllCountries'])->name('countrylist');
+    Route::post('/currencylist', [App\Http\Controllers\common\commonFunctions::class, 'getAllCurrencies'])->name('currencylist');
+
+});
+
+
+
+
 

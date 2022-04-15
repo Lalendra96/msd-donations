@@ -121,7 +121,7 @@
 				  </p>
         </div>
         <div class="col-md-6 offset-md-3">
-          <p class="text-center my-5"><a class="btn btn-success btn-two btn-lg btn-block" href="{{route('interface')}}" role="button">Donate Now</a> </p>
+          <p class="text-center my-5"><a class="btn btn-success btn-two btn-lg btn-block" href="{{route('donate.donations')}}" role="button">Donate Now</a> </p>
         </div>
 		  </div>
 	  </div>
@@ -166,7 +166,7 @@
 				          </p>
                 </div>
                 <div class="col-md-6 offset-md-3">
-                  <p class="text-center my-5"><a class="btn btn-success btn-two btn-lg btn-block" href="{{route('interface')}}" role="button">Donate Now</a> </p>
+                  <p class="text-center my-5"><a class="btn btn-success btn-two btn-lg btn-block" href="{{route('donate.donations')}}" role="button">Donate Now</a> </p>
                 </div>
 		          </div>
             </div>
