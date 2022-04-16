@@ -61,15 +61,18 @@ class DonationsController extends Controller
                 $to_name = $request->donar_name;
                 $to_email = $request->donar_email;
 
+                $senderName = config('email_config.email_name');
+                $senderEmail = config('email_config.email_address');
+
                 $data = array("name"=>$to_name, "body" => $currency." ".$donationAmount);
 
-                Mail::send("emails.mail", $data, function($message) use ($to_name, $to_email) {
+                Mail::send("emails.mail", $data, function($message) use ($to_name, $to_email, $senderName, $senderEmail) {
 
                     $message->to($to_email, $to_name)
 
                     ->subject("Donation Successful");
 
-                    $message->from("lalendradias3@gmail.com","Test Mail");
+                    $message->from($senderEmail, $senderName);
 
                 });
 
@@ -82,7 +85,7 @@ class DonationsController extends Controller
 
                 return response()->json([
                     'success' => false,
-                    'message' => "Failed to Send the Reply Email"
+                    'message' => $ex ->getMessage(),
                 ],200);
 
             }
