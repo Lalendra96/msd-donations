@@ -151,12 +151,12 @@
           </div>
     </div>
 
-    <div id="donationIfoModal" class="modal fade" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div id="donationInfoModal" class="modal fade" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" data-bs-backdrop="static" data-bs-keyboard="false">
       <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header bg-secondary">
                 <h5 class="modal-title">Help Health Sri Lanka</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">&times;</button>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body" style="background-color: lightgray">
               <div class="row">
@@ -186,7 +186,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script type="text/javascript">
     window.onload = () => {
-        $('#donationIfoModal').modal('show');
+        $('#donationInfoModal').modal('show');
     }
 </script>
   </body>
