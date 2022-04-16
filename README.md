@@ -56,7 +56,7 @@
     MIX_PUSHER_APP_KEY="${PUSHER_APP_KEY}"
     MIX_PUSHER_APP_CLUSTER="${PUSHER_APP_CLUSTER}"
     ===================================================================================================================================
-    IMPORTANT
+    **IMPORTANT**
     1. requires PHP version atleast 7.4
     2. Requires composer Package Manager
     3. Requires LAMP stack (Linux, Apache, MySQL, PHP)
