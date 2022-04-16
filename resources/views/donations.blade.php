@@ -135,7 +135,7 @@
                     data:{
             			"_token": "{{ csrf_token() }}",
                     },success: function(data) {
-						   let countryStr = "<option value='-' selected>Select Designation</option>";
+						   let countryStr = "<option value='-' selected>Select Country</option>";
 						   for(let country = 0; country < data.length; country++){
 							
 							countryStr += "<option value='"+data[country].countryName+"'>"+data[country].countryName+"</option>";
