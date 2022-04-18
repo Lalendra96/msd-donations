@@ -17,6 +17,8 @@ class DonationsController extends Controller
 
     public function insertData(Request $request){
 
+        
+        $title = $request->title;
         $donarName = $request->donar_name;
         $donationAmount = $request->donar_amount;
         $donarCountry = $request->donar_country;
@@ -28,7 +30,7 @@ class DonationsController extends Controller
         
 
         $insertDataDonationData = array(
-            "donarName" =>$donarName,
+            "donarName" =>$title." ".$donarName,
             "amount" => $donationAmount,
             "country" => $donarCountry,
             "contactNumber" => $donarContact,
@@ -58,7 +60,7 @@ class DonationsController extends Controller
             DB::commit();
 
             try{
-                $to_name = $request->donar_name;
+                $to_name = $request->title." ".$request->donar_name;
                 $to_email = $request->donar_email;
 
                 $senderName = config('email_config.email_name');

@@ -58,6 +58,20 @@
                   @csrf
                   <legend>Donations Information</legend>
                   <div class="form-group">
+                     <label class="col-sm-2 control-label">Title<sup style="color:red">*</sup></label>
+                     <select class="form-control" name="title" id="title">
+                        <option value='-' selected>Select</option>
+                        <option value='Mr.'>Mr.</option>
+                        <option value='Mrs.'>Mrs.</option>
+                        <option value='Miss.'>Miss.</option>
+                        <option value='Dr.'>Dr.</option>
+                        <option value='Prof.'>Prof.</option>
+                        <option value='Rev.'>Rev.</option>
+                        <option value='Ven.'>Ven.</option>
+                     </select>
+                  </div>
+                  <br>
+                  <div class="form-group">
                      <label class="col-sm-2 control-label">Donar's Name<sup style="color:red">*</sup></label>
                      <input type="text" autocomplete="off" class="form-control txtOnly" name="donar_name" placeholder="Please enter your name" required>
                   </div>
@@ -165,32 +179,37 @@
          
          // $(function(){
          $('#addDonations').on('submit', function(e){
-          e.preventDefault();
+            e.preventDefault();
          
-          let form = this;
+            if(document.getElementById('title').value == "-"){
+               toastr.error("Please Select Your Title");
+            }else{
+               let form = this;
 
-          let formData = new FormData(form);
+               let formData = new FormData(form);
          
-             $('#submit-btn').attr('disabled','disabled');
-         
-            $.ajax({
-                url: $(form).attr("action"),
-                method: $(form).attr("method"),
-                data: formData,
-                headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
-                dataType: 'json',
-                processData:false,
-                contentType:false,
-                success:function(data){
-                if(data.success == true){
-         	        toastr.success(data.message);
-                }else{
-         	        toastr.error(data.message);
-                }
-         
-                  document.getElementById('addDonations').reset();
-                }
+               $('#submit-btn').attr('disabled','disabled');
+               
+               $.ajax({
+                  url: $(form).attr("action"),
+                  method: $(form).attr("method"),
+                  data: formData,
+                  headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
+                  dataType: 'json',
+                  processData:false,
+                  contentType:false,
+                  success:function(data){
+                     if(data.success == true){
+         	            toastr.success(data.message);
+                     }else{
+         	            toastr.error(data.message);
+                     }
+                     document.getElementById('addDonations').reset();
+                  }
               })
+            }
+         
+               
         });
         
       </script>
