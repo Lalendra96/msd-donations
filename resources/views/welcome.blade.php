@@ -33,7 +33,7 @@
 	        <li class="nav-item"> <a class="nav-link" href="#donation">Donations</a> </li>
           </ul>
        </div>
-       <p class="text-right mb-0"><a class="btn btn-danger btn-two" href="#" role="button">Stock Mgmt. Login</a> </p>
+       <p class="text-right mb-0"><a class="btn btn-danger btn-two" href="{{config('externalUrl.stockurl')}}" role="button" target="_blank">Stock Mgmt. Login</a> </p>
   </nav>
 <div class="row">
            <div class="col-md-12">
