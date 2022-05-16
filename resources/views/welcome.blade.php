@@ -14,7 +14,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-  
+    <script src="{{asset('js/bootstrap.min.js')}}"></script>
+    <script src="{{asset('js/popper.min.js')}}"></script>
 </head>
 	<style>
 		body{
@@ -23,12 +24,14 @@
 	</style>
   <body style="padding-top: 70px">
      <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark text-white"> 
-       <a class="navbar-brand" href="{{route('home')}}">
+       <a class="navbar-brand" href="{{route('msdDonations.home')}}">
        <span class="font-weight-600"><img src="./images/stateEmblem.png" alt="" style="width: 40px;" />State Ministry of Production </span>
        <br/><small>Supply and Regulation of Pharmaceuticals </small></a>
-	    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent1" aria-controls="navbarSupportedContent1" aria-expanded="false" aria-label="Toggle navigation"> <span class="navbar-toggler-icon"></span> </button>
-	    <div class="collapse navbar-collapse" id="navbarSupportedContent1">
-	      <ul class="navbar-nav ml-auto">
+       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent1" aria-controls="navbarSupportedContent1" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+	    <div class="collapse navbar-collapse navbar-menu" id="navbarSupportedContent1">
+	      <ul class="navbar-nav nav ml-auto navbar-right">
 	        <li class="nav-item"> <a class="nav-link" href="#about-us">About us</a> </li>
 	        <li class="nav-item"> <a class="nav-link" href="#donation">Donations</a> </li>
           </ul>
@@ -120,8 +123,17 @@
           Your donations will be audited and accounted by the Auditor Generals Department.
 				  </p>
         </div>
+        <div class="col-md-10 offset-md-1 text-center" style="background-color: lightgray">
+				  <p class="text-column text-uppercase font-bold" style="font-size:23px; font-weight:bold"><u>Account Information</u></p>
+          <p class="text-column text-uppercase font-bold" style="font-size:17px; font-weight:bold">Bank Branch - Bank of Ceylon, Metropolitan</p>
+          <p class="text-column text-uppercase font-bold" style="font-size:17px; font-weight:bold">Account Number - 0088877498</p>
+          <p class="text-column font-bold" style="font-size:17px; font-weight:bold">Name of the Account - Ministry of Health Special Foreign Currency Account</p>
+          <p class="text-column text-uppercase font-bold" style="font-size:17px; font-weight:bold">SWIFT Code - BCEYLKLX</p>
+          <p class="text-column text-uppercase font-bold" style="font-size:17px; font-weight:bold">Bank Code - 7010</p>
+          <p class="text-column text-uppercase font-bold" style="font-size:17px; font-weight:bold">Branch Code - 618</p>
+        </div>
         <div class="col-md-6 offset-md-3">
-          <p class="text-center my-5"><a class="btn btn-success btn-two btn-lg btn-block" href="{{route('donate.donations')}}" role="button">Donate Now</a> </p>
+          <p class="text-center my-5"><a class="btn btn-success btn-two btn-lg btn-block" href="{{route('msdDonations.donations')}}" role="button">Donate Now</a> </p>
         </div>
 		  </div>
 	  </div>
@@ -166,7 +178,7 @@
 				          </p>
                 </div>
                 <div class="col-md-6 offset-md-3">
-                  <p class="text-center my-5"><a class="btn btn-success btn-two btn-lg btn-block" href="{{route('donate.donations')}}" role="button">Donate Now</a> </p>
+                  <p class="text-center my-5"><a class="btn btn-success btn-two btn-lg btn-block" href="{{route('msdDonations.donations')}}" role="button">Donate Now</a> </p>
                 </div>
 		          </div>
             </div>
@@ -184,10 +196,12 @@
       </div>
     </footer>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script type="text/javascript">
-    window.onload = () => {
-        $('#donationInfoModal').modal('show');
-    }
-</script>
+    
+    <!-- <script type="text/javascript">
+      window.onload = () => {
+          $('#donationInfoModal').modal('show');
+      }
+    </script> -->
+    
   </body>
 </html>

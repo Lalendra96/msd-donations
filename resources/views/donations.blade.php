@@ -12,11 +12,13 @@
       <script src="{{ asset('js/app.js') }}" defer></script>
       <!-- Styles -->
       <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-      <link rel="icon" href="../images/stateEmblem.png">
+      <link rel="icon" href="/images/stateEmblem.png">
       <link rel="preconnect" href="https://fonts.googleapis.com">
       <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
       <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
       <meta name="csrf-token" content="{{ csrf_token() }}" />
+      <script src="{{asset('js/bootstrap.min.js')}}"></script>
+      <script src="{{asset('js/popper.min.js')}}"></script>
    </head>
    <style>
       body{
@@ -24,19 +26,21 @@
       }
    </style>
    <body style="padding-top: 70px">
-      <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark text-white">
-         <a class="navbar-brand" href="{{route('home')}}">
-         <span class="font-weight-600"><img src="../images/stateEmblem.png" alt="" style="width: 40px;" />State Ministry of Production </span>
-         <br/><small>Supply and Regulation of Pharmaceuticals </small></a>
-         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent1" aria-controls="navbarSupportedContent1" aria-expanded="false" aria-label="Toggle navigation"> <span class="navbar-toggler-icon"></span> </button>
-         <div class="collapse navbar-collapse" id="navbarSupportedContent1">
-            <ul class="navbar-nav ml-auto">
-               <li class="nav-item"> <a class="nav-link" href="#about-us">About us</a> </li>
-               <li class="nav-item"> <a class="nav-link" href="#donation">Donations</a> </li>
-            </ul>
-         </div>
-         <p class="text-right mb-0"><a class="btn btn-danger btn-two" href="{{config('externalUrl.stockurl')}}" role="button" target="_blank">Stock Mgmt. Login</a> </p>
-      </nav>
+   <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark text-white"> 
+       <a class="navbar-brand" href="{{route('msdDonations.home')}}">
+       <span class="font-weight-600"><img src="./images/stateEmblem.png" alt="" style="width: 40px;" />State Ministry of Production </span>
+       <br/><small>Supply and Regulation of Pharmaceuticals </small></a>
+       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent1" aria-controls="navbarSupportedContent1" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+	    <div class="collapse navbar-collapse navbar-menu" id="navbarSupportedContent1">
+	      <ul class="navbar-nav nav ml-auto navbar-right">
+	        <li class="nav-item"> <a class="nav-link" href="#about-us">About us</a> </li>
+	        <li class="nav-item"> <a class="nav-link" href="#donation">Donations</a> </li>
+          </ul>
+       </div>
+       <p class="text-right mb-0"><a class="btn btn-danger btn-two" href="{{config('externalUrl.stockurl')}}" role="button" target="_blank">Stock Mgmt. Login</a> </p>
+  </nav>
       <div class="container">
          <div class="row">
             <div class="col-md-4">
@@ -54,7 +58,7 @@
          <div class="row">
             <div class="col-md-2"></div>
             <div class="col-md-8" style="margin-top: 1cm; margin-bottom: 2cm;">
-               <form id="addDonations" name="addDonations" autocomplete="off" method="POST" action="{{route('donate.addDonationInformation')}}">
+               <form id="addDonations" name="addDonations" autocomplete="off" method="POST" action="{{route('msdDonations.addDonationInformation')}}">
                   @csrf
                   <legend>Donations Information</legend>
                   <div class="form-group">
@@ -142,7 +146,7 @@
            });
 
            $.ajax({
-					url: "{{ route('common.countrylist') }}",
+					url: "{{ route('msdDonations.common.countrylist') }}",
                     type: "post",
                     delay: 250,
                     dataType: 'json',
@@ -159,7 +163,7 @@
 				});
 
             $.ajax({
-					url: "{{ route('common.currencylist') }}",
+					url: "{{ route('msdDonations.common.currencylist') }}",
                     type: "post",
                     delay: 250,
                     dataType: 'json',
